@@ -1,0 +1,37 @@
+<div class="card mb-3" [class.system]="isSystem()" (click)="onCardClick($event)">
+    <div class="row g-0">
+      <div class="col-md-4 image-container">
+        @if (isSystem()) {
+          <i class="bi bi-plus-circle"></i>
+        } @else {
+           <img [attr.src]="img()" class="img-fluid rounded-start img-fixed-size" alt="Card logo">
+        }
+      </div>
+      @if (!isSystem()) {
+        <div class="col-md-8">
+            <div class="card-body">
+              <div class="dropdown card-title-ddl-ellipsis" #dropdownEllipsis>
+                <h5 class="card-title text-truncate">{{ title() }}</h5>
+                <span (click)="$event.stopPropagation(); $event.preventDefault()" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></span>
+                <ul class="dropdown-menu">
+                  <li><span class="dropdown-item" (click)="onEditCard($event)">Edit</span></li>
+                  <li><span class="dropdown-item" (click)="onDeleteCard($event)">Delete</span></li>
+                </ul>
+              </div>
+              <p class="card-text">
+              <small class="text-body-secondary">
+                <div class="dropdown" #dropdownAdditionalLinks>
+                    <span class="badge text-bg-secondary" (click)="$event.stopPropagation(); $event.preventDefault()" data-bs-toggle="dropdown" aria-expanded="false">{{ qtyLinks() > 0 ? '+ ' : '' }}{{ qtyLinks()}}</span>
+                    <ul class="dropdown-menu">
+                      @for (aLink of additionalLinks(); let i = $index; track aLink.id ) {
+                        <li><span class="dropdown-item text-truncate" (click)="openLink($event, aLink.link)">{{ aLink.link }}</span></li>
+                      }
+                    </ul>
+                </div>
+              </small>
+              </p>
+            </div>
+        </div>
+      }
+    </div>
+  </div>

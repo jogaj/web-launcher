@@ -1,0 +1,17 @@
+@if(loading()) {
+    <app-spinner />
+} @else {
+   <div class="grid">  
+        @for (app of applicationsFilterd(); let i = $index; track app.id ) {
+             <app-card 
+                [id]="app.id"
+                [title]="app.name" 
+                [imgData]="app.image" 
+                [links]="app.links"
+                (emitDeleteCard)="onDeleteCardHandler($event)"
+                (emitEditCard)="onEditCardHandler($event)"
+            />
+        }
+        <app-card [isSystem]="true" />
+    </div>
+}

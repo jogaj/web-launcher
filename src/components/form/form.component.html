@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title mb-4">{{ getTitle }}</h3>
+      <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+        <div class="mb-4">
+          <label for="cardNameInput" class="form-label">Name</label>
+          <input type="text" 
+            class="form-control" 
+            [class.is-invalid]="cardNameHasErrors"
+            id="cardNameInput" 
+            [attr.maxlength]="maxLengthText" 
+            formControlName="cardNameInput">
+        </div>
+        <!-- <div class="mb-4">
+            <label for="colorInput" class="form-label">Color</label>
+            <div class="col-sm">
+              <input type="color" class="form-control" id="colorInput" formControlName="colorInput">
+            </div>
+        </div> -->
+        <div class="mb-4">
+          <label for="fileInput" class="form-label">Image</label>
+          <app-toggle-group [items]="toggleGroupItems" formControlName="fileToggle"></app-toggle-group>
+          <div class="mb-3">
+            <label></label>
+            @if(fileToggleControl?.value === TOGGLE_ITEM_NEW) {
+              <input class="form-control" id="fileInput" type="file" formControlName="fileInput" accept="image/*" (change)="onFileSelected($event)">
+              } @else {
+                <div class="overflow-auto">
+                  <app-img-selector [selectedImage]="selectedImage()" [images]="preExistingImages()" (emitImgClicked)="onImgClicked($event)"/>
+                </div>
+              }
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="linksInput" class="form-label">Links</label>
+          <app-list-link formControlName="listLinks" class="form-control" [class.is-invalid]="linkListHasErrors" />
+        </div>
+        <button type="submit" class="btn btn-primary" [class.disabled]="!isFormDirty">Save</button>
+        <button type="button" class="btn btn-primary ms-2" (click)="onCancel()">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+</div>

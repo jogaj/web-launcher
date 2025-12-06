@@ -1,0 +1,49 @@
+$top: 20px;
+.wrapper {
+    height: 5em;
+
+    .btn-group {
+        position: fixed;
+        top: $top;
+        right: 20px;
+    }
+
+    .btn-group,
+    .app-search-box {
+        opacity: 0.3;
+    }
+    
+    .app-search-box:hover,
+    .btn-group:hover {
+        opacity: 1;
+    }
+    
+    .bi-x-circle-fill {
+        font-size: 10px;
+        position: absolute;
+        left: 9px;
+        top: 16px;
+    }
+
+    @media (width > 1399px) and (width <= 1450px) {
+        .row {
+            justify-content: left !important;
+        }
+    }
+    @media (width <= 830px) {
+        .row {
+            justify-content: left !important;
+        }
+    }
+    
+    @media (width > 830px) and (width < 1401px) {
+        .row {
+            justify-content: center !important;
+        }
+    }
+
+}
+
+.no-height {
+    height: 0;
+}

@@ -1,0 +1,16 @@
+
+
+.main {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+
+    &__container {
+        position: relative;
+        height: calc(100% - 7em);
+        top: 7em;
+        overflow-y: auto;
+    }
+}

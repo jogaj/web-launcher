@@ -1,0 +1,28 @@
+<div
+  #toastElement
+  class="toast fade toast-width mt-2"
+  [ngClass]="type"
+  role="alert"
+  aria-live="assertive"
+  aria-atomic="true"
+>
+  <div class="toast-header">
+    @switch(type()) {
+        @case (ToastEventType.Success) {
+            <i class="bi bi-check-square-fill text-success"></i>
+        }
+        @case (ToastEventType.Info) {
+            <i class="bi bi-info-square-fill text-info"></i>
+        }
+        @case (ToastEventType.Warning) {
+            <i class="bi bi-exclamation-square-fill text-warning"></i>
+        }
+        @case (ToastEventType.Error) {
+            <i class="bi bi-x-square-fill text-danger"></i>
+        }
+    }
+    <strong class="me-auto">{{ title() }}</strong>
+    <button type="button" class="btn-close" aria-label="Close" (click)="hide()"></button>
+  </div>
+  <div class="toast-body">{{ message() }}</div>
+</div>

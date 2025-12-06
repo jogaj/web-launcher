@@ -1,0 +1,12 @@
+<div class="d-flex flex-row align-items-center img-selector-container">
+    @for(img of images(); track img) {
+        <div class="img-selector-container-div">
+            <img [attr.src]="img?.data.data" class="img-fluid" alt="image" (click)="onImgClick(img)">
+            @if(unwrapSafeValue(img?.data.data) === unwrapSafeValue(_selectedImage()?.data.data)) {
+                <i class="bi bi-check-circle-fill selected-icon"></i>
+            }
+        </div>
+    } @empty {
+        <p class="fst-italic w-100 text-center">No images found.</p>
+    }
+</div>

@@ -1,0 +1,42 @@
+<div class="container wrapper" [class.no-height]="currentRoute === '/' || currentRoute ==='/login'" >
+  <div class="row h-100 align-items-center justify-content-center">
+    <div class="col-8 col-md-9 col-xl-10 col-xxl-11">
+      @if (isSearchOpen()) {
+        <app-search-box />
+      }
+    </div>    
+  </div> 
+  
+  <div class="btn-group" role="group" aria-label="Menu options">
+    @if (shouldBeVisible) {
+      <button type="button"
+        class="btn"
+        [class]="btnThemeCssClass"
+        (click)="onToggleSearch()">
+        @if (isSearchOpen()) {
+          <i class="bi bi-search"></i>
+          <i class="bi bi-x-circle-fill"></i>
+        } @else {
+          <i class="bi bi-search"></i>
+        }
+      </button>
+    }
+    <button type="button"
+      title="Click to toggle theme." 
+      class="btn" 
+      [class]="btnThemeCssClass"
+      (click)="onToggleTheme()">
+          @if (currentTheme === ThemeType.Light) {
+              <i class="bi bi-lightbulb-fill"></i>
+          } @else {
+              <i class="bi bi-lightbulb"></i>
+          }
+    </button>
+    @if (isLogged) {
+      <button type="button" class="btn" [class]="btnThemeCssClass" (click)="logOut()">
+        <i class="bi bi-box-arrow-right"></i>
+      </button>
+    }
+  </div>
+</div>
+

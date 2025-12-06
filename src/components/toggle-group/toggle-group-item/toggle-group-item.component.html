@@ -1,0 +1,4 @@
+<div class="d-flex" (click)="onItemClick($event, value())">
+    <input type="radio" class="btn-check" autocomplete="off" [attr.checked]="checked() ? true : null">
+    <label class="btn btn-outline-secondary" [class.is-first]="isFirst()" [class.is-last]="isLast()">{{ value() }}</label>
+</div>

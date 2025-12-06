@@ -1,0 +1,5 @@
+<div class="btn-group d-flex" role="group" aria-label="Image toggle button group">
+    @for(item of items; track item; let isFirst = $first; let isLast = $last) {
+        <app-toggle-group-item [value]="item" [isFirst]="isFirst" [isLast]="isLast" [checked]="value === item" (itemClicked)="valueChangeHandler($event)"/>
+    }
+</div>

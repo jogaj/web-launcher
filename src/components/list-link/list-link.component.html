@@ -1,0 +1,12 @@
+<div class="list-link-container pt-1">
+    <span>Add link <i class="bi bi-plus-circle-fill ms-1" (click)="addNewLink()"></i></span>
+        <div class="mt-2" style="max-height: 186px; overflow: auto;">
+            <ul class="list-group mt-4">
+                @for(item of visibleLinks; track item.id) {
+                    <app-link [item]="item" (emitDeleteLink)="onRemoveLink($event)" (emitFavoriteLink)="onFavoriteLink($event)" />
+                } @empty {
+                    <p class="fst-italic w-100 text-center mb-5">No links added.</p>
+                }
+            </ul>
+        </div>
+</div>

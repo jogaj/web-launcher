@@ -1,0 +1,76 @@
+@import '../../../../node_modules/bootstrap/scss/functions';
+@import '../../../../node_modules/bootstrap/scss/variables';
+@import '../../../../node_modules/bootstrap/scss/mixins';
+
+.card:hover {
+    border-color: rgb(121, 45, 117);
+    // opacity: 0.98;
+}
+
+.card {
+    margin-bottom: 0 !important;
+    height: 100px;
+    cursor: pointer;
+    max-width: 300px;
+
+    .image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        img {
+            height: 75%;
+        }
+
+        .img-fixed-size {
+            height: 5rem;
+            width: 5rem;
+        }
+    }
+
+    .row,
+    .card-body {
+        height: 100%;
+
+        .card-title-ddl-ellipsis {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+
+        .dropdown-item.text-truncate {
+            max-width: 300px;
+        }
+    }
+}
+
+::ng-deep [data-bs-theme='dark'] .card {
+    background-color: $dark;
+}
+
+.card.system {
+    opacity: 0.8;
+    .image-container {
+        text-align: center;
+        margin: auto;
+
+        i {
+            font-size: xxx-large;
+        }
+    }
+}
+
+@include media-breakpoint-down(md) { 
+    .card {
+        height: 250px;
+
+        .image-container,
+        img {
+            height: 150px;
+        }
+    }
+
+    .card:not(.image-container) {
+        text-align: center;
+    }
+ }

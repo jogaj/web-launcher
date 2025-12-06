@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row d-flex align-items-center justify-content-center">
+      <div class="col-12">
+        <div class="form">
+          <i class="bi bi-search"></i>
+          <input type="text" class="form-control form-input"  [(ngModel)]="text" (ngModelChange)="onTextChange($event)" placeholder="Search...">
+          <span class="left-pan"><i class="bi bi-x-lg" (click)="onClearValue()"></i></span>
+        </div>
+      </div>
+    </div>
+</div>

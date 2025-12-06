@@ -1,0 +1,11 @@
+.list-link-container {
+    span {
+        cursor: pointer;
+    }
+}
+
+:host.is-invalid {
+    background-position: right 0.5em top 0.5em;
+}
+
+

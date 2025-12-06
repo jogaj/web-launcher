@@ -1,0 +1,15 @@
+<li class="d-flex justify-content-between align-items-start ms-2 me-2">
+    <div class="input-group mb-3">
+      <input type="url" class="form-control" aria-label="Link url" aria-describedby="button-addon" placeholder="Type URL here..." [(ngModel)]="item().link">
+      <button class="btn btn-secondary" type="button" id="button-addon3" (click)="onDeleteLinkClick()">
+        <span class="bi bi-dash-circle"></span>
+      </button>
+      <button class="btn btn-secondary" type="button" id="button-addon3">
+        @if (item()?.isDefault) {
+          <span class="bi bi-star-fill" (click)="onFavoriteClick()"></span>
+        } @else {
+          <span class="bi bi-star" (click)="onFavoriteClick()"></span>
+        }
+      </button>
+    </div>
+  </li>

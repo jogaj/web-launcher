@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+core.24251
+small-Dockerfile.txt
+a-Dockerfile

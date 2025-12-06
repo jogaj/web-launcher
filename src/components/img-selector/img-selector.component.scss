@@ -1,0 +1,35 @@
+
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins';
+
+.img-selector-container {
+    gap: 2rem;
+    height: 7rem;
+    overflow-x: auto;
+
+    .img-selector-container-div {
+        position: relative;
+        min-height: 5rem;
+        min-width: 5rem;
+        
+        img {
+            cursor: pointer;
+            height: 5rem;
+            width: 5rem;
+        }
+        img:hover {
+            border: 1px solid rgb(121, 45, 117);
+        }
+
+        .selected-icon {
+            position: absolute;
+            float: right;
+            right: 5px;
+            color: $success;
+            font-size: 1.2rem;
+        }
+    }
+
+    
+}
