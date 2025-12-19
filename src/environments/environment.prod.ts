@@ -1,5 +1,5 @@
 export const environment = {
 	production: true,
-	endpoint: 'https://test22-pearl.vercel.app/',
+	endpoint: 'https://web-launcher-api.vercel.app/',
 	apiPrefix: 'api',
 };
