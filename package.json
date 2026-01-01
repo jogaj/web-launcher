@@ -9,6 +9,7 @@
 		"watch": "ng build --watch --configuration development",
 		"test": "ng test",
 		"prod": "ng build --configuration=production",
+		"stage": "ng build --configuration=stage",
 		"format": "npx @biomejs/biome check --write",
 		"deploy": "ng deploy --base-href=/web-launcher/"
 	},

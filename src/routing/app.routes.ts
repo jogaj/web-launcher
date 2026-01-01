@@ -3,6 +3,7 @@ import { FormComponent } from '../components/form/form.component';
 import { LoginComponent } from '../components/login/login.component';
 import { MainViewComponent } from '../components/main-view/main-view.component';
 import { applicationResolver } from './resolvers/application.resolver';
+import { applicationOwnerGuard } from './guards/application-owner.guard';
 
 export const routes: Routes = [
 	{ path: '', component: LoginComponent },
@@ -14,5 +15,6 @@ export const routes: Routes = [
 		component: FormComponent,
 		pathMatch: 'full',
 		resolve: { application: applicationResolver },
+		canActivate: [applicationOwnerGuard]
 	},
 ];

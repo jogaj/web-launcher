@@ -30,6 +30,14 @@ export class StateService {
 		return this._currentUser?.value;
 	}
 
+	get isAdminUser$(): Observable<boolean> {
+		return this._isAdminUser?.asObservable();
+	}
+
+	get isAdminUser(): boolean {
+		return this._isAdminUser?.value;
+	}
+
 	get backgroundImage(): string {
 		return this._backgroundImage?.value;
 	}
@@ -47,7 +55,11 @@ export class StateService {
 	}
 
 	get currentRoute(): string {
-		return this._currentRoute?.value;
+		return this._currentRoute.value;
+	}
+
+	get abc(): number {
+		return 0;
 	}
 
 	get currentRoute$(): Observable<string> {
@@ -55,6 +67,7 @@ export class StateService {
 	}
 
 	private _currentUser: BehaviorSubject<string>;
+	private _isAdminUser: BehaviorSubject<boolean>;
 	private _backgroundImage: BehaviorSubject<string>;
 	private _openInNewTab: BehaviorSubject<boolean>;
 	private _currentRoute: BehaviorSubject<string>;
@@ -66,6 +79,7 @@ export class StateService {
 	) {
 		this.myApiUrl = `${environment.endpoint}${environment.apiPrefix}`;
 		this._currentUser = new BehaviorSubject<string>(null);
+		this._isAdminUser = new BehaviorSubject<boolean>(false);
 		this._backgroundImage = new BehaviorSubject<string>(null);
 		this._openInNewTab = new BehaviorSubject<boolean>(true);
 		this._currentRoute = new BehaviorSubject<string>('/');
@@ -79,6 +93,14 @@ export class StateService {
 	 */
 	setCurrentUser(value: string): void {
 		this._currentUser.next(value);
+	}
+
+	/**
+	 * Sets the current user's isAdmin.
+	 * @param value of isAdmin.
+	 */
+	setIsAdmintUser(value: boolean): void {
+		this._isAdminUser.next(value);
 	}
 
 	/**

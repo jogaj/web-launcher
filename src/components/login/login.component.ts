@@ -144,9 +144,10 @@ export class LoginComponent implements OnInit {
 		this._userSvc
 			.login(userCred)
 			.pipe(take(1))
-			.subscribe((result) => {
-				this._localStoreSvc.set(Constants.AuthKey, result);
-				this._stateService.setCurrentUser(username);
+			.subscribe((result: any) => {
+				this._localStoreSvc.set(Constants.AuthKey, result.token);
+				this._stateService.setCurrentUser(result.username);
+				this._stateService.setIsAdmintUser(result.isAdmin);
 				this._loadSettings();
 			});
 	}
