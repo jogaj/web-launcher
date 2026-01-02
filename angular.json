@@ -127,14 +127,14 @@
 							}
 						]
 					}
-        },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
-        }
+				},
+				"deploy": {
+					"builder": "angular-cli-ghpages:deploy"
+				}
 			}
 		}
-  },
-  "cli": {
-    "analytics": false
-  }
+	},
+	"cli": {
+		"analytics": false
+	}
 }
