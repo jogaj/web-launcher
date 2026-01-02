@@ -12,3 +12,37 @@ body {
 body[data-bs-theme="light"] {
   background-color: #f3f3f3;
 }
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+.slide-forward::view-transition-old(root) {
+  animation-name: slide-out-to-left;
+}
+.slide-forward::view-transition-new(root) {
+  animation-name: slide-in-from-right;
+}
+
+.slide-backward::view-transition-old(root) {
+  animation-name: slide-out-to-right;
+}
+.slide-backward::view-transition-new(root) {
+  animation-name: slide-in-from-left;
+}
+
+/* Keyframe Definitions */
+@keyframes slide-in-from-right {
+  from { transform: translateX(100%); }
+}
+@keyframes slide-out-to-left {
+  to { transform: translateX(-100%); }
+}
+@keyframes slide-in-from-left {
+  from { transform: translateX(-100%); }
+}
+@keyframes slide-out-to-right {
+  to { transform: translateX(100%); }
+}
