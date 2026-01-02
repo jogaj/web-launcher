@@ -58,10 +58,6 @@ export class StateService {
 		return this._currentRoute.value;
 	}
 
-	get abc(): number {
-		return 0;
-	}
-
 	get currentRoute$(): Observable<string> {
 		return this._currentRoute?.asObservable();
 	}
