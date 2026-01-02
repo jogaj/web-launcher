@@ -3,6 +3,7 @@ import {
 	Component,
 	inject,
 	OnInit,
+	signal,
 } from '@angular/core';
 import {
 	AbstractControl,
@@ -16,6 +17,7 @@ import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { Constants } from '../../enums/constants';
 import { ToastEventType } from '../../enums/toast-event-type';
+import { environment } from '../../environments/environment';
 import { IUser } from '../../interfaces/user';
 import { LocalStoreService } from '../../services/local-store.service';
 import { SettingsService } from '../../services/settings.service';
@@ -44,6 +46,8 @@ export class LoginComponent implements OnInit {
 	authForm: FormGroup;
 	maxLengthText = 20;
 
+	demoMode = signal<boolean>(false);
+
 	get formControls(): { [key: string]: AbstractControl } {
 		return this.authForm.controls;
 	}
@@ -71,6 +75,7 @@ export class LoginComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		this.demoMode.set(environment.demo);
 		this.authForm = this.formBuilder.group({
 			username: [
 				'',

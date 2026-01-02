@@ -2,6 +2,12 @@
     <main class="form-signin w-100 m-auto">
         
         <form [formGroup]="authForm" (ngSubmit)="onSignIn()">
+            @if (demoMode()) {
+            <div class="alert alert-info text-center" role="alert">
+                <span class="w-100 d-block mb-2 fw-bold">Demo Mode ON</span>
+                User: admin<br/> Password: admin
+            </div>
+        }
             <h1 class="h1 mb-3 fw-bold text-center">WebLauncher</h1>
             <h4 class="h4 mb-4 fw-normal text-center my-5">Sign in to your account</h4>
         
@@ -35,7 +41,6 @@
             </label> -->
             </div>
             <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
-            <!-- <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p> -->
         </form>
     </main>
 </div>
